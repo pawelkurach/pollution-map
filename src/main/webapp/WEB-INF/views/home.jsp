@@ -14,7 +14,7 @@
 	    var marker;
 	    function initialize() {
 	      geocoder = new google.maps.Geocoder();
-	      var latlng = new google.maps.LatLng(40.730885,-73.997383);
+	      var latlng = new google.maps.LatLng(25.774252, -80.190262);
 	      var mapOptions = {
 	        zoom: 8,
 	        center: latlng
@@ -75,7 +75,7 @@
                 strokeColor: '#FFFF00',
                 //strokeOpacity: 0.8,
                 strokeWeight: 0,
-                fillColor: '#FFFF00',
+                fillColor: getColor(30),
                 fillOpacity: 0.35
               });
   	    bermudaTriangle2.setMap(map);
@@ -102,6 +102,12 @@
             });
 	    	polygon.setMap(map);
 	    	
+	    }
+	    
+	    function getColor(t) {
+	        //http://stackoverflow.com/questions/16399677/javascript-temperature-color	            
+            var hue = 30 + 240 * (30 - t) / 60;
+            return 'hsl(' + [hue, '70%', '50%'] + ')';	            
 	    }
 
 	    function codeAddress() {
